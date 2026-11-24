@@ -1,0 +1,2 @@
+model,n_fitur,C,gamma_mult,test_accuracy,test_precision,test_recall,test_f1,test_roc_auc,val_loss
+SVM Local + Global,8,1,1.0,0.9310595065312046,0.9452773613193404,0.9150943396226415,0.9299410029498525,0.9787996528487259,0.1585181286887036

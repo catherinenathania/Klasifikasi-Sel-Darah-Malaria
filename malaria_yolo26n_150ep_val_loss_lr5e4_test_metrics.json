@@ -1,0 +1,12 @@
+{
+  "model": "YOLO26n-cls",
+  "n_test": 2756,
+  "accuracy": 0.9720609579100146,
+  "precision_parasitized": 0.9829250185597624,
+  "recall_parasitized": 0.9608127721335269,
+  "f1_parasitized": 0.971743119266055,
+  "macro_precision": 0.972299982665261,
+  "macro_recall": 0.9720609579100146,
+  "macro_f1": 0.9720574225680831,
+  "roc_auc": 0.9957037923327596
+}

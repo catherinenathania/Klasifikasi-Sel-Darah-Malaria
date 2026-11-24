@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "batch_size": 32,
+  "split": {"train": 22046, "val": 2756, "test": 2756},
+  "models": [
+    "YOLO 150 ep val-loss",
+    "Custom CNN 150 Epoch LR 5e-4",
+    "SVM Pixel",
+    "SVM Local",
+    "SVM Global",
+    "SVM Local + Global"
+  ],
+  "yolo": {"epochs": 150, "learning_rate": 0.0005, "image_size": 224, "best_model_metric": "validation_loss"},
+  "cnn": {"epochs": 150, "learning_rate": 0.0005, "image_size": 224, "patience": 10, "best_model_metric": "validation_loss"},
+  "svm": {"pixel_size": 32, "grid_subsample": 8000, "kernel": "rbf", "best_model_metric": "validation_hinge_loss"}
+}
