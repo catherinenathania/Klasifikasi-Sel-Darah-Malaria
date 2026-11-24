@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Klasifikasi Citra Malaria
 
 Eksperimen ini membandingkan enam model klasifikasi citra malaria:
@@ -46,3 +47,6 @@ Model terbaik adalah YOLO26n-cls dengan accuracy 97.21%, F1 97.17%, dan ROC-AUC 
 - SVM Local: dua fitur ORB.
 - SVM Global: enam fitur GLCM dan shape.
 - SVM Local + Global: delapan fitur gabungan.
+=======
+# Klasifikasi-Sel-Darah-Malaria
+>>>>>>> d506ff667c18faf780b97b539396e7b4539d1073
