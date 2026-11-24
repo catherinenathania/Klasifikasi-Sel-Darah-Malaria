@@ -17,6 +17,7 @@ YOLO_PREDICTIONS = (
 OUTPUT = BASE_DIR / "laporan" / "visualisasi" / "28_label_vs_prediksi_enam_model.png"
 
 
+
 def normalize_id(path_or_id: str) -> str:
     name = Path(path_or_id).name
     return re.sub(r"^\d+_", "", name)
