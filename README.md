@@ -1,16 +1,31 @@
-<<<<<<< HEAD
-# Klasifikasi Citra Malaria
+# Klasifikasi Citra Sel Darah Malaria
 
-Eksperimen ini membandingkan enam model klasifikasi citra malaria:
+Proyek ini disusun untuk mata kuliah **Pengolahan Citra Digital dan Visi Komputer**, dengan fokus membandingkan enam pendekatan klasifikasi citra sel darah malaria:
 
-1. YOLO26n-cls, 150 epoch, learning rate 5e-4
-2. Custom CNN, 150 epoch, learning rate 5e-4
-3. SVM Pixel
-4. SVM Local
-5. SVM Global
-6. SVM Local + Global
+1. **YOLO26n-cls** (150 epoch, learning rate `5e-4`)
+2. **Custom CNN** (150 epoch, learning rate `5e-4`)
+3. **SVM Pixel**
+4. **SVM Local**
+5. **SVM Global**
+6. **SVM Local + Global**
 
-## Hasil utama
+## Anggota Kelompok
+
+| Nama | NIM |
+| :--- | :--- |
+| Catherine Nathania | 235150201111042 |
+| Shinta Oktavia Ramadhani | 235150207111036 |
+| Rifqi Cahyono | 235150201111002 |
+
+## Dataset
+
+Dataset yang digunakan bersumber dari Kaggle: Cell Images for Detecting Malaria (https://www.kaggle.com/datasets/iarunava/cell-images-for-detecting-malaria).
+
+- **Total citra:** 27.558 citra (kelas seimbang).
+- **Pembagian data (80/10/10):** 22.046 train / 2.756 validation / 2.756 test.
+- **Random seed:** 42.
+
+## Hasil Utama
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |---|---:|---:|---:|---:|---:|
@@ -21,32 +36,26 @@ Eksperimen ini membandingkan enam model klasifikasi citra malaria:
 | SVM Global | 86.76% | 86.00% | 87.81% | 86.89% | 93.41% |
 | SVM Local + Global | 93.11% | 94.53% | 91.51% | 92.99% | 97.88% |
 
-Model terbaik adalah YOLO26n-cls dengan accuracy 97.21%, F1 97.17%, dan ROC-AUC 99.57%.
+Model terbaik pada eksperimen ini adalah **YOLO26n-cls** dengan accuracy **97.21%**, F1-score **97.17%**, dan ROC-AUC **99.57%**[cite: 2].
 
-## Struktur
+## Konfigurasi Eksperimen
 
-- `00_prepare_split.py`: membuat split train/validation/test 80/10/10.
-- `10_train_yolo.py`: melatih dan mengevaluasi YOLO26n-cls.
-- `20_train_cnn.py`: melatih dan mengevaluasi Custom CNN.
+- **Citra YOLO / Custom CNN:** ukuran `224 x 224`
+- **SVM Pixel:** fitur piksel pada resolusi `32 x 32` RGB
+- **SVM Local:** dua fitur ORB
+- **SVM Global:** enam fitur GLCM dan shape
+- **SVM Local + Global:** delapan fitur gabungan (ORB + GLCM & shape)[cite: 2]
+
+## Struktur Proyek
+
+- `00_prepare_split.py`: membuat split train/validation/test dengan rasio 80/10/10.
+- `10_train_yolo.py`: melatih dan mengevaluasi model `YOLO26n-cls`.
+- `20_train_cnn.py`: melatih dan mengevaluasi model `Custom CNN`.
 - `30_train_svm.py`: melatih empat representasi SVM.
-- `40_compare.py`: membandingkan hasil prediksi model.
-- `malaria_cls_split/`: dataset yang telah dibagi.
-- `malaria_split_manifest.csv`: daftar citra dan split deterministik.
-- `cnn_150ep/`: checkpoint, riwayat training, prediksi, dan metrik CNN.
+- `40_compare.py`: membandingkan hasil prediksi seluruh model.
+- `malaria_cls_split/`: direktori dataset yang telah dibagi.
+- `malaria_split_manifest.csv`: daftar citra dan pembagian split deterministik.
+- `cnn_150ep/`: checkpoint, riwayat training, prediksi, dan metrik Custom CNN.
 - `runs/yolo26n_cls_150ep_val_loss_lr5e4/`: hasil training dan checkpoint YOLO.
 - `svm/`: checkpoint, grid validation, prediksi, dan metrik SVM.
-- `laporan/`: tabel ringkas dan visualisasi enam model.
-
-## Konfigurasi
-
-- Dataset: 27.558 citra, seimbang.
-- Split: 22.046 train / 2.756 validation / 2.756 test.
-- Seed: 42.
-- Citra YOLO/CNN: 224 x 224.
-- SVM Pixel: 32 x 32 RGB.
-- SVM Local: dua fitur ORB.
-- SVM Global: enam fitur GLCM dan shape.
-- SVM Local + Global: delapan fitur gabungan.
-=======
-# Klasifikasi-Sel-Darah-Malaria
->>>>>>> d506ff667c18faf780b97b539396e7b4539d1073
+- `laporan/`: tabel ringkas dan visualisasi perbandingan enam model[cite: 2].
